@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Tolerance Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <h1>Stock Tolerance Calculator</h1>
+    <form method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required /><br /><br />
+
+      <label for="salary">Yearly Salary (INR):</label>
+      <input type="number" id="salary" name="salary" required /><br /><br />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required /><br /><br />
+
+      <label for="residency">Residency (1: City, 2: District, 3: Village):</label>
+      <input type="number" id="residency" name="residency" required /><br /><br />
+
+      <label for="gender">Gender (M/F):</label>
+      <input type="text" id="gender" name="gender" required /><br /><br />
+
+      <label for="symbol">Stock Symbol:</label>
+      <input type="text" id="symbol" name="symbol" required /><br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    {% if stock_data %}
+    <h2>Stock Information</h2>
+    {% if stock_data.error %}
+    <p>{{ stock_data.error }}</p>
+    {% else %}
+    <p>Last Refreshed: {{ stock_data.last_refreshed }}</p>
+    <p>Latest Closing Price: {{ stock_data.latest_close }}</p>
+    <p>Recent High: {{ stock_data.recent_high }}</p>
+    <p>Recent Low: {{ stock_data.recent_low }}</p>
+    <p>Recommendation: {{ stock_data.recommendation }}</p>
+    {% endif %}
+    {% endif %}
+
+    {% if reason %}
+    <h2>Reason for Buying/Not Buying</h2>
+    <p>{{ reason }}</p>
+    {% endif %}
+  </body>
+</html>

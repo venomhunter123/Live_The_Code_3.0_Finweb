@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chatbot.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Fin Web</title>
+    <style>
+        /* Inline CSS to fix the header and iframe issue */
+      
+        /* Ensure header stays on top */
+        .header {
+            position: fixed;    
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .main-box {
+            margin-top: 50px; /* Adjust based on header height */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-bottom">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-box">
+        <div class="box-body">
+            <div class="left-box">
+                <h1>Financial Assistance</h1>
+                <h3>24 / 7 Customer Assistance</h3>
+                <p>We provide you with the best financial<br>assistance designed to your needs.</p>
+                <button class="services">See Services</button>
+            </div>
+            <div class="right-box">
+                <img src="/static/images/background-image.jpg">
+            </div>
+        </div>
+
+        <!-- IFrame Section -->
+        <!-- <div class="iframe-container">
+            <iframe
+                src="https://www.chatbase.co/chatbot-iframe/bXUz3eAJMDHvlRAzGK-0G"
+                style="height: 700px; min-height: 700px"
+                frameborder="0"
+            ></iframe>
+        </div> -->
+
+        <div class="cardArea" id="cardArea">
+            <div class="card">
+                <a class="servicesRef" onclick="window.location.href='/Tolerance'">
+                    <div class="cardContent">
+                        Stock info
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a class="serviceRef" onclick="window.location.href='/visualization'">
+                    <div class="cardContent">
+                        Stock Visualization
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function scrollToCard() {
+        document.getElementById('cardArea').scrollIntoView({ behavior: 'smooth' });
+    }
+        window.embeddedChatbotConfig = {
+            chatbotId: "bXUz3eAJMDHvlRAzGK-0G",
+            domain: "www.chatbase.co"
+        };
+    </script>
+    <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="bXUz3eAJMDHvlRAzGK-0G"
+        domain="www.chatbase.co"
+        defer
+    ></script>
+</body>
+</html>
